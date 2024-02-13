@@ -1,0 +1,106 @@
+@mixin bare_list {
+	margin: 0;
+	padding: 0;
+	list-style: none !important;
+}
+
+@mixin transparent_button {
+	border: none;
+	padding: 0;
+	background: none;
+}
+
+@mixin centered_absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@mixin align_vertical_absolute {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@mixin align_horizontal_absolute {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@mixin fillBlockAbsolute {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+@mixin fillBlockFixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin aspectRatioImage {
+	display: block;
+	position: relative;
+	padding-top: 75.18%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+@mixin aspectRatioImageWide {
+	display: block;
+	position: relative;
+	padding-top: 56.25%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+@mixin aspectRatioImageSquare {
+	display: block;
+	position: relative;
+	padding-top: 100%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+@mixin aspectRatioHightImage {
+	display: block;
+	position: relative;
+	padding-top: 125%;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+@mixin coverImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	font-family: 'object-fit: cover;' !important;
+}
+
+@mixin containImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	font-family: 'object-fit: contain';
+}

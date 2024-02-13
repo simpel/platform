@@ -1,0 +1,183 @@
+@use '/assets/styles/tools/responsive';
+@use '/assets/styles/settings/font-sizes';
+@use '/assets/styles/settings/font-weights';
+
+.mobileMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+
+	pointer-events: none;
+	z-index: 50;
+
+	&.open {
+		pointer-events: inherit;
+
+		.menuContainer {
+			transform: translateX(0);
+		}
+
+		.shadedBackground {
+			opacity: 1;
+		}
+	}
+
+	@include responsive.mq($from: large_tablet) {
+		display: none;
+	}
+}
+
+.social {
+	margin-bottom: 0;
+	margin-top: 34px;
+
+	a {
+		padding: 0 !important;
+		height: 34px;
+		width: 34px;
+	}
+}
+
+.menuContainer {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 80%;
+	padding-top: 80px;
+
+	// TODO: padding-bottom should ideally be set to env(safe-area-inset-bottom) but it doesn't seem to work.
+	// You also need to include "viewport-fit=cover" as part of the content of <meta name="viewport ... />
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/env
+	padding-bottom: 10vh;
+
+	overflow: hidden;
+
+	background-color: white;
+
+	transform: translateX(-100%);
+	transition: transform 0.35s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.innerWrapper {
+	position: relative;
+	display: grid;
+	grid-template-columns: 100% 100% 100% 100%;
+	grid-gap: 32px;
+
+	width: 100%;
+
+	transform: translateX(0);
+	transition: transform 0.35s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.menu {
+	display: flex;
+	flex-flow: column;
+	list-style: none;
+
+	padding: 10px max(8.135%, 24px) 0;
+	margin: 0;
+
+	&.firstTier {
+		.menuItem {
+			font-size: font-sizes.$size-m;
+			font-weight: font-weights.$semibold;
+		}
+	}
+
+	.menuItem {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		font-size: font-sizes.$size-s;
+
+		&--active {
+			background-color: #ffecc6;
+		}
+
+		&.external {
+			justify-content: left;
+
+			a {
+				width: auto;
+			}
+		}
+
+		&.heading,
+		&.backToPrevious {
+			font-weight: font-weights.$semibold;
+		}
+
+		&.backToPrevious {
+			font-size: font-sizes.$link-size_wide;
+			padding: 7px 0 7px 26px;
+		}
+
+		&.heading {
+			margin-top: 15px;
+		}
+
+		a,
+		> span:first-child:not(.menuItemBackArrow) {
+			display: block;
+			min-height: 34px;
+			padding: 7px 16px 7px 0;
+			width: 100%;
+			line-height: 1.1;
+			text-decoration: none;
+		}
+
+		.menuItemForwardArrow {
+			position: absolute;
+			right: -3px;
+		}
+
+		.menuItemBackArrow {
+			position: absolute;
+			left: -4px;
+		}
+
+		.menuItemExternalLink {
+			position: relative;
+		}
+	}
+
+	.mobileMenuFooter {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		width: 100%;
+		padding: 13px max(8.135%, 24px) max(8.135%, 24px);
+		border-top: 1px solid #e6e6e6;
+
+		.menuItem {
+			font-size: font-sizes.$size-s;
+			font-weight: normal;
+		}
+	}
+}
+
+.shadedBackground {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.subMenuTitle {
+	padding: 7px 0;
+	font-size: 12px;
+	text-transform: uppercase;
+}

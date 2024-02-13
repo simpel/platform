@@ -1,0 +1,50 @@
+.pagenotfound {
+	display: grid;
+	grid-template-rows: 80px 1fr;
+	max-width: 1376px;
+	padding: 0 24px;
+	margin: 0 auto;
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #fff;
+		width: 100%;
+		transition: transform 0.35s cubic-bezier(0.86, 0, 0.07, 1);
+		&__nav {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			margin: 0;
+			padding: 0 25px;
+			&__logo {
+				display: block;
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+	&__container {
+		display: grid;
+		justify-content: center;
+		font-family: 'URWGeometric', sans-serif;
+		padding-top: 80px;
+		&__list {
+			list-style: disc;
+			display: grid;
+			gap: 10px;
+			& > li {
+				color: #b48d4d;
+			}
+			&__anchor {
+				text-decoration: underline;
+			}
+		}
+		&__search {
+			margin-top: 20px;
+		}
+	}
+}

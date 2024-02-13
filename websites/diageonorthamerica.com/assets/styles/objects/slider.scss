@@ -1,0 +1,162 @@
+@use '../settings/font-sizes';
+@use '../settings/colors';
+@use '../settings/spacing';
+@use '../tools/responsive';
+@use '../settings/content-size';
+
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+.slider {
+	.slick-track {
+		display: flex;
+
+		&::before,
+		&::after {
+			display: none;
+		}
+	}
+
+	.slick-list {
+		margin: 0 -10px;
+		overflow: visible;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.slick-slide {
+		float: none;
+		height: auto;
+		display: flex;
+
+		> div {
+			display: flex;
+			height: initial;
+			flex: 1;
+			padding: 0 10px;
+		}
+
+		img {
+			transition: all 0.2s ease-in-out;
+		}
+	}
+
+	.slick-arrow {
+		-webkit-box-shadow: 0 12px 37px -0px rgba(41, 41, 41, 0.25);
+		-moz-box-shadow: 0 12px 37px -0px rgba(41, 41, 41, 0.25);
+		box-shadow: 0 12px 37px -0px rgba(41, 41, 41, 0.25);
+
+		@include responsive.mq($until: mobile_md) {
+			display: none;
+		}
+	}
+
+	&__progress {
+		@include responsive.mq($until: tablet) {
+			text-align: left !important;
+		}
+	}
+}
+
+.slick-slider {
+	position: relative;
+}
+
+.slick-arrow {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	background-color: colors.$white;
+	cursor: pointer;
+
+	@include responsive.mq($from: wide) {
+		top: 61%;
+		width: 120px;
+		height: 120px;
+	}
+
+	&::before {
+		display: none;
+	}
+
+	&:after {
+		display: none;
+	}
+
+	.icon__inner {
+		justify-content: center;
+	}
+
+	&:disabled {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&.slick-disabled {
+		display: none;
+	}
+
+	&.slick-prev {
+		left: 0px;
+
+		@include responsive.mq($from: tablet) {
+			left: -20px;
+		}
+
+		@include responsive.mq($from: extra_wide) {
+			left: -95px;
+		}
+	}
+
+	&.slick-next {
+		right: 0px;
+
+		@include responsive.mq($from: tablet) {
+			right: -20px;
+		}
+
+		@include responsive.mq($from: extra_wide) {
+			right: -95px;
+		}
+	}
+
+	&:focus {
+		opacity: 1;
+		visibility: visible;
+		background: colors.$beige-gradient;
+	}
+}
+
+.slick-dots {
+	position: static;
+
+	li {
+		button {
+			width: 8px;
+			height: 8px;
+			background-color: transparent;
+			border: 1px solid colors.$base_text_color;
+			opacity: 1;
+			border-radius: 50%;
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&.slick-active {
+			button {
+				background-color: colors.$base_text_color;
+			}
+		}
+	}
+}

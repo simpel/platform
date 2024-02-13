@@ -1,0 +1,41 @@
+@use '/assets/styles/tools/responsive';
+@use '/assets/styles/settings/content-size';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: content-size.$wide;
+}
+
+.imageWrapper {
+	display: flex;
+	max-width: 276px;
+	width: 100%;
+	max-height: 150px;
+	height: 100%;
+	margin-bottom: 16px;
+	object-fit: contain;
+	position: relative;
+}
+
+.titleContainer {
+	display: flex;
+	padding-bottom: 16px;
+}
+
+.title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.textContainer {
+	display: flex;
+	padding-bottom: 16px;
+}
+
+.text {
+	font-size: 16px;
+	font-weight: 400;
+}

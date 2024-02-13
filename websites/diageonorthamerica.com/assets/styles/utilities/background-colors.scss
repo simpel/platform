@@ -1,0 +1,21 @@
+@use '../settings/colors';
+@use '../mixins';
+
+.bg-color-white {
+	background-color: colors.$white;
+}
+.bg-color-black {
+	background-color: colors.$base_text_color;
+}
+.bg-color-orange {
+	background-color: colors.$orange;
+}
+.bg-color-success {
+	background-color: colors.$success;
+}
+.bg-color-error {
+	background-color: colors.$error;
+}
+.bg-color-warning {
+	background-color: colors.$warning;
+}

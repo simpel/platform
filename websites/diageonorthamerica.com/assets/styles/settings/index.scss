@@ -1,0 +1,18 @@
+@use 'colors';
+@use 'liquid-magic';
+@use 'spacing';
+@use 'font-sizes';
+@use 'content-size';
+@use 'font-face';
+@use 'font-weights';
+@use 'container';
+@use 'grid';
+
+/*remove for testing */
+code {
+	max-width: calc(content-size.$wide + spacing.$l * 2);
+	padding: 1rem spacing.$l;
+	background-color: pink;
+	width: 300px;
+	display: block;
+}

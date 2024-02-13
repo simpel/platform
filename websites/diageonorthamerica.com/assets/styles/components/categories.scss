@@ -1,0 +1,44 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-weights';
+@use '../settings/font-sizes';
+@use '../mixins';
+
+.categories {
+	&--row {
+		.categories {
+			&__list {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+			}
+
+			&__item {
+				margin-bottom: spacing.$xxs;
+
+				&:not(:last-child) {
+					margin-right: spacing.$xxs;
+				}
+			}
+		}
+	}
+
+	&--column {
+		.categories {
+			&__item {
+				&:not(:last-child) {
+					margin-bottom: spacing.$xxs;
+				}
+			}
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: colors.$base_text_color;
+		background-color: colors.$white;
+		font-size: font-sizes.$size-xxs;
+		line-height: font-sizes.$btn-lh;
+		padding: spacing.$xxxs;
+	}
+}

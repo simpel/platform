@@ -1,0 +1,41 @@
+@use '../settings/spacing';
+@use '../tools/responsive';
+@use '../settings/colors';
+
+.slider-stories {
+	position: relative;
+	padding-top: spacing.$l;
+	overflow: hidden;
+
+	.slick-arrow {
+		&:hover {
+			background: colors.$beige-gradient;
+		}
+	}
+
+	&__decor-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 423px;
+		background: var(--sophisticated);
+	}
+
+	.container {
+		position: relative;
+	}
+
+	&__heading {
+		max-width: 370px;
+		margin-bottom: spacing.$xxl;
+	}
+
+	&__link-wrapper {
+		margin-bottom: 20px;
+
+		@include responsive.mq($from: tablet) {
+			display: none;
+		}
+	}
+}

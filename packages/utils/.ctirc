@@ -1,0 +1,36 @@
+{
+  "spinnerStream": "stdout",
+  "progressStream": "stdout",
+  "reasonerStream": "stderr",
+  "options": [
+    {
+      "mode": "create",
+      "project": "./tsconfig.json",
+      "exportFilename": "index.ts",
+      "useSemicolon": true,
+      "useBanner": true,
+      "useTimestamp": false,
+      "quote": "'",
+      "directive": "",
+      "fileExt": "none",
+      "overwrite": true,
+      "generationStyle": "default-alias-named-destructive",
+      "include": [
+        "**/src/**/*.ts",
+        "**/src/**/*.tsx"
+      ],
+      "exclude": [
+        "**/*.d.ts",
+        "**/*.stories.tsx",
+        "**/*.styles.ts",
+        "**/*.styles.tsx",
+        "**/storybook/**/*"
+      ],
+      "skipEmptyDir": true,
+      "startFrom": "./src",
+      "output": "./src",
+      "removeBackup": true,
+      "forceYes": true
+    }
+  ]
+}

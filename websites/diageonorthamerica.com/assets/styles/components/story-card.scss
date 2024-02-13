@@ -1,0 +1,122 @@
+@use '../settings/spacing';
+@use '../settings/font-sizes';
+@use '../settings/colors';
+@use '../tools/responsive';
+@use '../tools/etc';
+@use '../mixins';
+
+.story-card {
+	width: 100%;
+	background-color: colors.$white;
+
+	&__image {
+		@include etc.aspectRatioImageWide;
+		margin-bottom: spacing.$m;
+		cursor: pointer;
+
+		img {
+			@include etc.coverImage;
+			width: 100%;
+		}
+
+		> a {
+			@include etc.centered_absolute();
+		}
+	}
+
+	&__image-icon {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 56px;
+		height: 56px;
+		background-color: colors.$black;
+	}
+
+	&__body {
+		padding: 0 spacing.$l spacing.$l spacing.$l;
+
+		p {
+			font-size: font-sizes.$size-m;
+			line-height: font-sizes.$size-lh;
+
+			@include responsive.mq($from: mobile_md) {
+				width: 85%;
+			}
+		}
+	}
+
+	&__pre-heading {
+		margin-bottom: 0;
+	}
+
+	&__heading {
+		// font-size: font-sizes.$size-xl;
+		line-height: font-sizes.$h-lh;
+	}
+
+	a {
+		text-decoration: none;
+		@include mixins.animate(opacity);
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+.news-listing {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+	margin: -2rem auto;
+	padding: 0;
+	li {
+		// border: solid 2rem transparent;
+		width: 100%;
+		@include responsive.mq($from: mobile_md) {
+			width: 50%;
+		}
+		@include responsive.mq($from: large_tablet) {
+			width: 33.333%;
+		}
+		@include responsive.mq($from: wide) {
+			width: 33.333%;
+			border: solid 2rem transparent;
+		}
+	}
+}
+
+.media-listing {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	li {
+		.card {
+			.image-box {
+				max-height: 220px;
+				@include responsive.mq($until: large_tablet) {
+					max-height: 250px;
+				}
+			}
+		}
+	}
+}
+
+.next-image-initial {
+	> div {
+		position: initial !important;
+		div {
+			object-fit: cover;
+
+			div {
+				span {
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}

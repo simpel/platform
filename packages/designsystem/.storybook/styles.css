@@ -1,0 +1,46 @@
+@font-face {
+	font-family: FSBrabo;
+	src: url('./../assets/fonts/FSBraboItalic.woff2') format('woff2'),
+		url('./../assets/fonts/FSBraboItalic.woff') format('woff');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: URWGeometric;
+	src: url('./../assets/fonts/URWGeometricLight.woff2') format('woff2'),
+		url('./../assets/fonts/URWGeometricLight.woff') format('woff');
+	font-weight: light;
+}
+
+@font-face {
+	font-family: URWGeometric;
+	src: url('./../assets/fonts/URWGeometricRegular.woff') format('woff2'),
+		url('./../assets/fonts/URWGeometricRegular.woff') format('woff');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: URWGeometric;
+	src: url('./../assets/fonts/URWGeometricSemiBold.woff2') format('woff2'),
+		url('./../assets/fonts/URWGeometricSemiBold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: URWGeometric;
+	src: url('./../assets/fonts/URWGeometricBold.woff2') format('woff2'),
+		url('./../assets/fonts/URWGeometricBold.woff') format('woff');
+	font-weight: 900;
+}
+
+html, body {
+	font-family: var(--fonts-base-font);
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 ,h6, .h6 {
+	font-family: var(--fonts-headings-font);
+}
+
+html, body {
+    font-family: URWGeometric,sans-serif;
+}

@@ -1,0 +1,63 @@
+@use '../settings/spacing';
+@use '../settings/content-size';
+@use '../mixins';
+@import '~sass-mq';
+
+@mixin spacings {
+	max-width: calc(content-size.$wide + spacing.$l * 2);
+	padding: spacing.$xxl spacing.$l;
+	margin: 0 auto;
+}
+
+.related-stories {
+	@include spacings;
+
+	.related-stories-list {
+		display: flex;
+		position: relative;
+		padding: 0;
+		margin: 3rem 0;
+
+		@include mq($until: tablet) {
+			display: block;
+		}
+		.related-stories-item {
+			flex-wrap: wrap;
+			position: relative;
+			padding: 0 1rem;
+			font-size: 25px;
+			width: 33.333%;
+
+			@include mq($until: tablet) {
+				width: 100%;
+				flex: 0 0 100%;
+				margin-bottom: 2rem;
+			}
+			> span {
+				@include mixins.fades-vertical;
+				background: var(--vibrant-v);
+			}
+			p a {
+				text-decoration: none;
+				color: #000;
+				line-height: 2rem;
+
+				&:hover {
+					text-decoration: underline;
+					text-decoration-color: #af182e;
+					text-underline-offset: 0.2em;
+					// &:after {
+					//   content: '';
+					//   position: absolute;
+					//   bottom: -8px;
+					//   left: 0;
+					//   right: 0;
+					//   width: 100%;
+					//   height: 2px;
+					//   background: linear-gradient(180deg, #f0801b 0%, #af182e 100%);
+					// }
+				}
+			}
+		}
+	}
+}

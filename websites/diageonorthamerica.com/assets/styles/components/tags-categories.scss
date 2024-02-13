@@ -1,0 +1,61 @@
+@use '../settings/colors';
+@use '../settings/spacing';
+@use '../settings/font-sizes';
+@use '../mixins';
+
+.tags-categories {
+	&--with-border {
+		position: relative;
+		padding-left: spacing.$l;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 4px;
+			background: colors.$border-gradient;
+		}
+	}
+
+	&__title {
+		letter-spacing: 2px;
+		margin-bottom: spacing.$xs;
+	}
+
+	&__list {
+		&--row {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+
+			.tags-categories__item {
+				&:not(:last-child) {
+					margin-right: spacing.$xs;
+				}
+			}
+		}
+	}
+
+	&__item {
+		margin-bottom: spacing.$xxs;
+	}
+
+	&__link {
+		color: colors.$black;
+		border: 1px solid colors.$black;
+		font-size: font-sizes.$size-xxs;
+		text-decoration: none;
+		letter-spacing: 0.2em;
+		padding: calc(spacing.$xxxs + 2px) calc(spacing.$xxxs + 1px)
+			calc(spacing.$xxxs + 1px);
+
+		@include mixins.animate(color background-color);
+
+		&:hover {
+			color: colors.$white;
+			background-color: colors.$black;
+		}
+	}
+}

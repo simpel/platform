@@ -1,0 +1,33 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-weights';
+@use '../settings/font-sizes' as fz;
+@use '../mixins';
+
+.author-quote {
+	&__image {
+		height: 80px;
+		border-radius: 50%;
+		overflow: hidden;
+		flex: 0 1 80px;
+		margin-right: 16px;
+	}
+
+	&__content {
+		flex: 0 1 190px;
+	}
+
+	&__name {
+		margin-bottom: 0;
+		font-style: normal;
+		font-size: fz.$size-s;
+		line-height: 1.2;
+	}
+
+	&__description {
+		font-style: normal;
+		margin-bottom: 0;
+		font-size: fz.$size-s;
+		line-height: 1.2;
+	}
+}

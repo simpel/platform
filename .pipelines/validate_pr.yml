@@ -1,0 +1,80 @@
+pr:
+  branches:
+    include:
+      - '*'
+    exclude:
+      - main
+
+variables:
+  pnpm_config_cache: $(Pipeline.Workspace)/.pnpm-store
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '20.x'
+
+- task: CmdLine@2
+  displayName: "⏳ Running git pull"
+  inputs:
+    script: |
+      git pull --force origin main:main
+      ls -la
+
+- task: CmdLine@2
+  displayName: "🦋 Checking status"
+  continueOnError: false
+  inputs:
+    script: |
+      FILES=$(find ./.changeset -name "*.md")
+      if [ -z "$FILES" ]; then
+        echo "No changesets found"
+        exit 1
+      else
+        echo "There are changesets!"
+      fi
+
+- task: Cache@2
+  inputs:
+    key: 'pnpm | "$(Agent.OS)" | pnpm-lock.yaml'
+    path: $(pnpm_config_cache)
+  displayName: Cache pnpm
+
+- script: |
+    corepack enable
+    corepack prepare pnpm@latest-8 --activate
+  displayName: "📦 Setting up PNPM"
+
+- script: pnpm config set store-dir $(pnpm_config_cache)
+  displayName: "💾 Create cache"
+
+- task: CmdLine@2
+  displayName: "⏳ Installing dependencies"
+  inputs:
+    script: |
+      pnpm install
+
+- task: CmdLine@2
+  displayName: "👮🏿 Checking TS/JS linting"
+  continueOnError: true
+  inputs:
+    script: |
+      pnpm run ci:lint
+
+- task: CmdLine@2
+  displayName: "👩‍🎨 Checking SCSS linting"
+  continueOnError: false
+  inputs:
+    script: |
+      pnpm run ci:lint:styles
+
+
+- task: CmdLine@2
+  displayName: "🏗️ Building monorepo"
+  continueOnError: false
+  inputs:
+    script: |
+      pnpm run build

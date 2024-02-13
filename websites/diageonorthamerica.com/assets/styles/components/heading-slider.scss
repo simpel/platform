@@ -1,0 +1,89 @@
+@use '../settings/spacing';
+@use '../settings/font-sizes';
+@use '../tools/responsive';
+
+.heading-slider {
+	margin-bottom: 76px;
+
+	@include responsive.mq($from: large_tablet) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__heading {
+		&--small {
+			@include responsive.mq($from: large_tablet) {
+				font-size: font-sizes.$h3-medium_wide;
+			}
+		}
+
+		&--medium {
+			@include responsive.mq($from: large_tablet) {
+				font-size: calc(font-sizes.$h2-medium_wide - 1px);
+			}
+		}
+
+		&--large {
+			@include responsive.mq($from: large_tablet) {
+				font-size: calc(font-sizes.$h2-medium_wide + 5px);
+			}
+		}
+
+		&--extra-large {
+			@include responsive.mq($from: large_tablet) {
+				font-size: font-sizes.$h1-xxl-medium_wide;
+			}
+		}
+	}
+
+	&__logo {
+		width: 213px;
+		height: 216px;
+
+		@include responsive.mq($from: tablet) {
+			margin-left: auto;
+		}
+
+		@include responsive.mq($from: large_tablet) {
+			margin-right: 122px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__left {
+		width: 100%;
+		&:not(:only-child) {
+			@include responsive.mq($from: tablet) {
+				max-width: 546px;
+				width: 100%;
+				margin-right: 30px;
+				padding-top: 20px;
+			}
+		}
+	}
+
+	&__right {
+		@include responsive.mq($from: tablet) {
+			max-width: 490px;
+			width: 100%;
+			padding-top: 20px;
+		}
+	}
+
+	&__text {
+		&--small {
+			font-size: font-sizes.$size-m;
+		}
+
+		&--medium {
+			font-size: calc(font-sizes.$size-xl + 2px);
+		}
+
+		p {
+			font-size: inherit;
+		}
+	}
+}

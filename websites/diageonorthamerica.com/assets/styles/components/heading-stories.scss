@@ -1,0 +1,26 @@
+@use '../settings/spacing';
+@use '../settings/font-sizes';
+@use '../tools/responsive';
+
+.heading-stories {
+	margin-bottom: spacing.$xxxl;
+
+	@include responsive.mq($from: large_tablet) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__heading {
+		margin-bottom: 0;
+
+		@include responsive.mq($until: tablet) {
+			font-size: font-sizes.$h2-mobile;
+		}
+	}
+
+	&__link {
+		@include responsive.mq($until: large_tablet) {
+			display: none;
+		}
+	}
+}

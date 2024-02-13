@@ -1,0 +1,168 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-weights';
+@use '../settings/font-sizes';
+@use '../mixins';
+
+.audio-player {
+	max-width: 320px;
+	width: 100%;
+	border-radius: 3px;
+	background-color: colors.$white;
+	box-shadow: 0px 4px 8px rgba(colors.$base_text_color, 0.1);
+
+	&--playing {
+		.audio-player__button-play {
+			opacity: 0.7;
+		}
+
+		.audio-player__graphic-equalizer {
+			&-line {
+				&-1 {
+					animation: equalizer 0.6s linear 0.1s infinite alternate-reverse;
+				}
+
+				&-2 {
+					animation: equalizer 0.6s linear 0.3s infinite alternate-reverse;
+				}
+
+				&-3 {
+					animation: equalizer 0.6s linear 0.2s infinite alternate-reverse;
+				}
+
+				&-4 {
+					animation: equalizer 0.6s linear 0.7s infinite alternate-reverse;
+				}
+
+				&-5 {
+					animation: equalizer 0.6s linear 0.5s infinite alternate-reverse;
+				}
+
+				&-6 {
+					animation: equalizer 0.6s linear 0.9s infinite alternate-reverse;
+				}
+
+				&-7 {
+					animation: equalizer 0.6s linear 0.7s infinite alternate-reverse;
+				}
+			}
+		}
+	}
+
+	&__inner {
+		padding: calc(spacing.$xxs + 2px) calc(spacing.$xxxs + spacing.$l)
+			calc(spacing.$xxs + 2px) calc(spacing.$xxs + 2px);
+	}
+
+	&__title {
+		margin-right: spacing.$xxxs;
+		font-weight: font-weights.$semibold;
+	}
+
+	&__time {
+		margin-right: calc(spacing.$xxxs + spacing.$l);
+	}
+
+	&__button-play {
+		background-color: transparent;
+		border: none;
+		margin-right: spacing.$xxxs;
+		cursor: pointer;
+
+		@include mixins.animate(opacity);
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__graphic {
+		position: relative;
+	}
+
+	&__graphic-icon {
+		position: absolute;
+		cursor: pointer;
+		top: -(calc(spacing.$xs + 1px));
+		right: -(calc(spacing.$s - 1px));
+
+		&:hover {
+			.audio-player__graphic-message {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__graphic-message {
+		position: absolute;
+		top: -30px;
+		min-width: 120px;
+		left: 0;
+		opacity: 0;
+		color: colors.$white;
+		font-size: font-sizes.$size-xxs;
+		background-color: colors.$base_text_color;
+		padding: spacing.$xxxs;
+
+		@include mixins.animate(opacity);
+	}
+
+	&__graphic-equalizer {
+		width: 42px;
+		height: 32px;
+
+		&-line {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			border-radius: 10px;
+			width: 4px;
+			display: inline-block;
+			background-color: colors.$base_text_color;
+
+			&-1 {
+				height: 6px;
+				left: 0;
+			}
+
+			&-2 {
+				height: 12px;
+				left: 6px;
+			}
+
+			&-3 {
+				height: 18px;
+				left: 12px;
+			}
+
+			&-4 {
+				height: 28px;
+				left: 18px;
+			}
+
+			&-5 {
+				height: 26px;
+				left: 24px;
+			}
+
+			&-6 {
+				height: 32px;
+				left: 30px;
+			}
+
+			&-7 {
+				height: 18px;
+				left: 36px;
+			}
+		}
+	}
+}
+
+@keyframes equalizer {
+	from {
+		height: 10%;
+	}
+	to {
+		height: 90%;
+	}
+}

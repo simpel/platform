@@ -1,0 +1,384 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights.scss';
+@use '../tools/responsive';
+@use '../tools/etc';
+@use '../mixins';
+
+.brand-card {
+	max-width: 380px;
+	width: 100%;
+	overflow: hidden;
+
+	&--product {
+		.brand-card__body {
+			padding: 32px 24px 40px;
+		}
+
+		.brand-card__text {
+			margin-bottom: spacing.$l;
+		}
+	}
+
+	&--product-secondary {
+		.brand-card__body {
+			padding: 24px 30px;
+		}
+
+		.brand-card__heading {
+			font-size: 32px;
+			line-height: font-sizes.$sm-lh;
+			font-weight: font-weights.$bold;
+		}
+
+		.brand-card__text {
+			font-style: italic;
+		}
+	}
+
+	&--brand {
+		.link {
+			@include mixins.animate(opacity);
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		.brand-card__image {
+			position: relative;
+		}
+
+		.brand-card__link-image {
+			@include etc.fillBlockAbsolute();
+			z-index: 1;
+		}
+
+		.brand-card__heading {
+			font-weight: font-weights.$semibold;
+			font-size: 26px;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	&--brand-explorer {
+		.brand-card__image {
+			height: 320px;
+			margin-bottom: -90px;
+
+			div {
+				position: initial !important;
+
+				img {
+					object-fit: cover !important;
+				}
+			}
+		}
+
+		.brand-card__body {
+			max-width: 90%;
+			margin: 0 auto;
+			text-align: center;
+
+			.brand-card__image-logo {
+				//max-width: 188px;
+				max-width: 228px;
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+
+		.brand-card__heading {
+			text-align: center;
+		}
+
+		.brand-card__link-icon {
+			margin: 0;
+		}
+
+		.link__text {
+			font-weight: font-weights.$semibold;
+		}
+	}
+
+	&--explorer {
+		.brand-card__image {
+			height: 320px;
+			margin-bottom: -90px;
+		}
+
+		.brand-card__body {
+			max-width: 90%;
+			margin: 0 auto;
+			text-align: center;
+
+			.brand-card__image-logo {
+				max-width: 188px;
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+
+		.brand-card__heading {
+			text-align: center;
+		}
+
+		.brand-card__link-icon {
+			margin: 0;
+		}
+	}
+
+	&--history-timeline {
+		filter: drop-shadow(0px 30px 40px rgba(colors.$black, 0));
+
+		@include mixins.animate(filter);
+
+		&:hover {
+			filter: drop-shadow(0px 30px 40px rgba(colors.$black, 0.1));
+		}
+
+		.brand-card__image {
+			// height: 375px;
+		}
+
+		.brand-card__content {
+			margin-bottom: spacing.$xxxl;
+			@include mixins.animate(margin-bottom);
+		}
+	}
+
+	&--history {
+		.brand-card__body {
+			padding: 34px 24px;
+		}
+
+		.brand-card__heading {
+			margin-bottom: spacing.$xl;
+		}
+
+		.brand-card__text {
+			font-size: font-sizes.$size-xxs;
+		}
+	}
+
+	&--benefit {
+		display: flex;
+		flex-direction: column;
+
+		.brand-card__body {
+			padding-left: 0;
+			padding-bottom: 0;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			background-color: transparent;
+		}
+
+		.brand-card__content {
+			flex: 1;
+			margin-bottom: spacing.$xxl;
+		}
+
+		.brand-card__text {
+			font-size: font-sizes.$size-l;
+		}
+	}
+
+	&--person {
+		max-width: 320px;
+		width: 100%;
+		margin: 0 auto;
+
+		.brand-card__body {
+			padding: spacing.$xl spacing.$l;
+		}
+
+		.brand-card__text {
+			font-size: 26px;
+			font-weight: font-weights.$semibold;
+		}
+
+		.brand-card__link-icon {
+			@include responsive.mq($from: tablet) {
+				display: none;
+			}
+		}
+	}
+
+	&__image {
+		position: relative;
+		overflow: hidden;
+
+		img {
+			min-width: 100%;
+		}
+
+		.brand-card__image-logo {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background-color: #fff;
+			height: 30%;
+
+			@include responsive.mq($until: tablet) {
+				height: 80px;
+			}
+		}
+
+		.image-box {
+			width: 100%;
+			height: 100%;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			div {
+				position: initial !important;
+			}
+
+			span {
+				img {
+					transition: all 0.6s ease-in-out;
+					width: 100% !important;
+					height: 100% !important;
+					object-fit: cover !important;
+				}
+			}
+		}
+	}
+
+	&__image-placeholder {
+		max-height: 430px;
+		height: 30vw;
+
+		.image-box {
+			width: 100%;
+			height: 100%;
+
+			img {
+				transition: all 0.6s ease-in-out;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__logo-placeholder,
+	&__image-logo {
+		max-width: 160px;
+		width: 100%;
+
+		@include responsive.mq($from: large_tablet) {
+			max-width: 250px;
+		}
+
+		img {
+			transition: all 0.6s ease-in-out;
+			width: 100%;
+		}
+	}
+
+	&__body {
+		position: relative;
+		width: 100%;
+		padding: 28px 26px;
+		background-color: colors.$white;
+		height: 100%;
+	}
+
+	&__text {
+		font-size: font-sizes.$size-m;
+		min-height: 50px;
+
+		i {
+			font-weight: font-weights.$normal;
+		}
+	}
+
+	&__location {
+		color: rgba(#546772, 0.79);
+		font-size: font-sizes.$size-xxs;
+		margin-bottom: spacing.$xxs;
+	}
+
+	&__date {
+		font-size: calc(font-sizes.$size-l + 2px);
+		margin-bottom: spacing.$xxs;
+	}
+
+	&__link-icon {
+		margin-top: spacing.$m;
+		text-decoration: none;
+
+		.icon {
+			display: inline-block;
+			margin-right: 0.5rem;
+
+			&--middle {
+				width: 32px;
+			}
+		}
+
+		.brand-name {
+			font-size: 18px;
+			vertical-align: middle;
+			display: inline-block;
+			margin-top: -24px;
+			line-height: 18px;
+			text-decoration: none;
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: -8px;
+				width: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				transition: background 500ms linear;
+				background: colors.$link-gradient;
+				transition: all 0.2s ease-in-out;
+			}
+		}
+
+		&:hover {
+			.brand-name {
+				//text-decoration: underline;
+
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&__link-benefit {
+		font-weight: font-weights.$semibold;
+		font-size: font-sizes.$size-l;
+		text-decoration: none;
+		color: inherit;
+
+		.icomoon-icon {
+			vertical-align: middle;
+			display: inline-block;
+			margin-left: spacing.$xxs;
+			margin-bottom: calc(spacing.$xxxs + 2px);
+		}
+	}
+
+	&:hover {
+		.brand-card__image {
+			> img {
+				transition: all 0.3s ease-in-out;
+				transform: scale(1.1);
+			}
+		}
+	}
+}

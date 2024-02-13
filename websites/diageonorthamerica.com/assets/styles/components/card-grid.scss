@@ -1,0 +1,118 @@
+@import '~sass-mq';
+
+.card-grid {
+	// display: grid;
+	// grid-gap: 40px;
+	// grid-template-columns: 2.155fr 1fr 1fr;
+	// grid-template-columns: 1fr 1fr 1fr 1fr;
+	max-width: 1172px;
+	margin: 0 auto;
+	background: #ffffff;
+
+	--gap: 20px;
+	--gap-bottom: 35px;
+
+	.card-grid-row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: calc(-1 * var(--gap));
+		margin-right: calc(-1 * var(--gap));
+		margin-bottom: calc(-1 * var(--gap-bottom));
+	}
+
+	.card-expressive {
+		margin-left: var(--gap);
+		margin-right: var(--gap);
+		margin-bottom: var(--gap-bottom);
+		width: calc(25% - var(--gap) - var(--gap));
+		cursor: pointer;
+		text-decoration: none;
+		color: inherit;
+	}
+	.card-expressive--wide {
+		width: calc(50% - var(--gap) - var(--gap));
+
+		.card-body {
+			margin-right: var(--gap);
+		}
+		// .card-text {
+		//   font-size: 26px;
+		//   line-height: 34px;
+		// }
+	}
+
+	.card-image {
+		background: #d8d8d8;
+		height: 315px;
+		background-position: center;
+		background-size: cover;
+
+		img {
+			opacity: 0;
+		}
+	}
+
+	.card-meta {
+		display: flex;
+		justify-content: space-between;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+
+		.card-meta-left {
+			text-transform: uppercase;
+			padding-right: 4px;
+		}
+
+		.card-meta-right {
+			white-space: nowrap;
+			font-weight: 700;
+			padding-left: 4px;
+		}
+
+		& > * {
+			padding: var(--gap);
+		}
+	}
+
+	.card-body {
+		background: white;
+		padding: var(--gap);
+		margin-top: -30px;
+		margin-left: var(--gap);
+	}
+	.card-title {
+		font-size: 13px;
+		line-height: 18px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	.card-text {
+		font-size: 20px;
+		line-height: 25px;
+		font-weight: 400;
+		margin-top: 8px;
+	}
+
+	@include mq($from: mobile_md, $until: large_tablet) {
+		.card-expressive,
+		.card-expressive--wide {
+			width: calc(50% - var(--gap) - var(--gap));
+		}
+	}
+
+	@include mq($until: mobile_md) {
+		.card-grid-row {
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.card-expressive,
+		.card-expressive--wide {
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+	}
+}

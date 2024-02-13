@@ -1,0 +1,12 @@
+body {
+	margin: 0;
+}
+
+.graphiql {
+	height: 100vh;
+}
+
+.docExplorerWrap {
+	overflow: auto !important;
+	width: 100%;
+}

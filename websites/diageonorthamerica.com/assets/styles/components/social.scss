@@ -1,0 +1,28 @@
+@use '../settings/spacing';
+@use '../settings/font-sizes';
+@use '../tools/responsive';
+@use '../mixins';
+
+.social {
+	&__heading {
+		margin-bottom: spacing.$m;
+
+		@include responsive.mq($from: large_tablet) {
+			margin-bottom: spacing.$xl;
+		}
+	}
+
+	&__list-item {
+		&:not(:last-child) {
+			margin-right: spacing.$xs;
+		}
+	}
+}
+
+.social-icon {
+	@include mixins.animate(opacity);
+
+	&:hover {
+		opacity: 0.7;
+	}
+}

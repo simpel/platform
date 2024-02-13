@@ -1,0 +1,23 @@
+@use '../settings/spacing';
+@use '../settings/content-size';
+@use '../tools/responsive';
+@use '../mixins';
+
+//responsive
+@import '~sass-mq';
+
+.sub-heading {
+	max-width: 100%;
+	width: 100%;
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	@include mq($until: tablet) {
+		flex-wrap: wrap;
+	}
+
+	&--link {
+		margin-left: auto;
+	}
+}

@@ -1,0 +1,74 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights';
+@use '../tools/responsive';
+@use '../mixins';
+
+.brends-search-dropdown {
+	background-color: colors.$white;
+	max-height: 490px;
+	overflow-y: auto;
+
+	&__item {
+		border-bottom: 1px solid colors.$black;
+	}
+}
+
+.brand-line {
+	padding: 10px 0;
+	min-height: 86px;
+	display: flex;
+	align-items: center;
+
+	@include responsive.mq($from: mobile_md) {
+		padding: 10px 30px;
+	}
+
+	&__image {
+		flex: 0 1 90px;
+		margin-right: 14px;
+
+		@include responsive.mq($from: mobile_md) {
+			margin-right: 64px;
+			flex: 0 1 100px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__body {
+		flex: 1;
+	}
+
+	&__link-wrapper {
+		margin-left: 14px;
+
+		@include responsive.mq($from: mobile_md) {
+			margin-left: 20px;
+			flex: 0 1 34px;
+		}
+	}
+
+	&__brand {
+		font-size: font-sizes.$size-xs;
+		font-weight: font-weights.$semibold;
+		margin-bottom: 0;
+
+		@include responsive.mq($from: large_tablet) {
+			font-size: font-sizes.$size-l;
+		}
+	}
+
+	&__category {
+		font-size: font-sizes.$size-xs;
+		font-style: italic;
+		margin-bottom: 0;
+
+		@include responsive.mq($from: large_tablet) {
+			font-size: font-sizes.$size-l;
+		}
+	}
+}

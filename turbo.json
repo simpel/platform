@@ -1,0 +1,66 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalDotEnv": [
+		".env"
+	],
+	"pipeline": {
+		"build": {
+			"outputs": [
+				"dist/**",
+				".next/**",
+				"!.next/cache/**",
+				"storybook-static/**"
+			],
+			"dependsOn": [
+				"@diageo/buildsystem#build",
+				"^build",
+				"^barrels:generate"
+			],
+			"dotEnv": [
+				".env"
+			]
+		},
+		"@diageo/designsystem#build": {
+			"cache": false,
+			"dependsOn": [
+				"@diageo/designsystem#barrels:generate",
+				"@diageo/utils#build"
+			]
+		},
+		"@diageo/utils#build": {
+			"cache": false,
+			"dependsOn": [
+				"@diageo/utils#barrels:generate"
+			]
+		},
+		"@diageo/buildsystem#build": {
+			"cache": true
+		},
+		"clean": {
+			"cache": true
+		},
+		"dev": {
+			"dependsOn": [
+				"^barrels:generate",
+				"^@diageo/buildsystem#build"
+			],
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {},
+		"lint:styles": {},
+		"ci:lint": {},
+		"ci:lint:styles": {},
+		"sort": {
+			"cache": true
+		},
+		"barrels:delete": {},
+		"barrels:generate": {
+			"dependsOn": [
+				"@diageo/buildsystem#build",
+				"^barrels:generate"
+			],
+			"cache": false
+		}
+	}
+}

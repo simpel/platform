@@ -1,0 +1,59 @@
+.DS_Store
+node_modules
+.turbo
+*.log
+.next
+dist
+dist-ssr
+*.local
+.env
+.cache
+server/dist
+public/dist
+storybook-static
+.env.staging
+.env.uat
+/storybook-static
+/node_modules
+/.pnp
+.pnp.js
+/coverage
+
+# next.js
+/.next/
+/out/
+/cache/
+
+# production
+/build
+
+# misc
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.development.local
+.env.uat.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+.vscode
+
+# PWA
+sw.js
+workbox-*.js
+
+/public/robots.txt
+.idea
+/.vs
+/public/images/static/liquid_bg/d/th_red.xcf
+/analyze
+*.bak
+.parcel-cache
+packages/designsystem/dist

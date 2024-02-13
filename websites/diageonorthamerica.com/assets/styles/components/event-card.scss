@@ -1,0 +1,79 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights';
+@use '../tools/responsive';
+@use '../tools/etc';
+@use '../mixins';
+
+.event-card {
+	color: colors.$white;
+	background: linear-gradient(122.51deg, #403559 15.92%, #7373a5 56.44%);
+
+	@include responsive.mq($until: tablet) {
+		max-width: 420px;
+		width: 100%;
+	}
+
+	@include responsive.mq($from: tablet) {
+		display: flex;
+	}
+
+	&__image {
+		@include responsive.mq($from: tablet) {
+			flex: 0 1 320px;
+			display: flex;
+		}
+
+		@include responsive.mq($from: large_tablet) {
+			flex: 0 1 400px;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__body {
+		padding: 40px 20px;
+
+		@include responsive.mq($from: tablet) {
+			flex: 1;
+			padding: 38px 26px;
+		}
+
+		@include responsive.mq($from: large_tablet) {
+			padding: 38px 48px;
+		}
+	}
+
+	&__heading {
+		color: inherit;
+	}
+
+	&__pre-heading {
+		letter-spacing: 2px;
+		font-size: font-sizes.$size-xs;
+		margin-bottom: spacing.$xs;
+	}
+
+	&__event-title {
+		margin-bottom: spacing.$xxxs;
+	}
+
+	&__event-list {
+		margin-bottom: spacing.$xl;
+
+		&.bare-list {
+			margin-bottom: spacing.$xl;
+		}
+	}
+
+	&__event-item {
+		&:not(:last-child) {
+			margin-bottom: spacing.$xxxs;
+		}
+	}
+}

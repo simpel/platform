@@ -1,0 +1,71 @@
+@use '../settings/font-weights';
+@use '../settings/font-sizes';
+@use '../settings/spacing';
+@import '~sass-mq';
+
+.contact-title-mobile {
+	display: none;
+	@include mq($until: mobile_md) {
+		display: block;
+	}
+}
+
+.contact-title-desktop {
+	display: block;
+	@include mq($until: mobile_md) {
+		display: none;
+	}
+}
+
+.contact-block {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	.contact-item {
+		width: 33.333%;
+		@include mq($until: tablet) {
+			width: 50%;
+		}
+		@include mq($until: mobile_md) {
+			width: 100%;
+			display: none;
+		}
+
+		> ul {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0.5rem 0;
+				a {
+					text-decoration: none;
+					color: #000;
+					display: flex;
+					padding-right: 5rem;
+
+					@include mq($until: mobile_md) {
+						padding-right: 0;
+					}
+
+					.link__icon {
+						margin-left: auto;
+					}
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.contact-link {
+			font-size: font-sizes.$size-m;
+		}
+	}
+}
+
+/* Hide google recaptcha badge */
+.grecaptcha-badge {
+	visibility: hidden !important;
+}

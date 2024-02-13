@@ -1,0 +1,68 @@
+@use '../settings/spacing.scss';
+@use '../settings/colors';
+@use '../settings/font-weights.scss' as fw;
+@use '../settings/font-sizes.scss' as fz;
+@use '../mixins';
+
+.block-sitemap {
+	padding: spacing.$xl 0;
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__alphalist {
+		margin-bottom: 30px;
+	}
+
+	&__container {
+		max-width: 1000px;
+	}
+}
+
+.sitemap {
+	&__item {
+		padding: spacing.$l 0;
+	}
+}
+
+.site-list {
+	border-top: 1px solid #c7c2ba;
+
+	&__item {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding: spacing.$m spacing.$xl;
+		border-bottom: 1px solid #c7c2ba;
+	}
+
+	&__text {
+		width: 40%;
+		margin-right: 30px;
+		font-size: fz.$size-m;
+	}
+
+	&__link {
+		position: relative;
+		width: 50%;
+		font-size: fz.$size-m;
+		text-decoration: none;
+		padding-left: 30px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&-icon {
+			position: absolute;
+			top: 2px;
+			left: 0;
+
+			path {
+				stroke: #f0801b;
+			}
+		}
+	}
+}

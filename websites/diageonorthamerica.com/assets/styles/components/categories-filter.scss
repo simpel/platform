@@ -1,0 +1,91 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights';
+@use '../tools/responsive';
+
+.categories-filter {
+	padding: 20px 0;
+	background-color: rgba(colors.$white, 0.5);
+
+	@include responsive.mq($from: large_tablet) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__heading {
+		margin-right: spacing.$l;
+		margin-bottom: spacing.$xs;
+		font-size: font-sizes.$size-m;
+		font-weight: font-weights.$semibold;
+		flex: 1 0 190px;
+
+		@include responsive.mq($until: tablet) {
+			display: none;
+		}
+
+		@include responsive.mq($from: large_tablet) {
+			margin-bottom: spacing.$xxxs;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+
+		@include responsive.mq($from: large_tablet) {
+			justify-content: flex-end;
+			width: 80%;
+		}
+
+		&.bare-list {
+			margin-left: -(spacing.$xxs);
+			margin-right: -(spacing.$xxs);
+		}
+	}
+
+	&__item {
+		margin-bottom: spacing.$xs;
+
+		&:not(:last-child) {
+			@include responsive.mq($until: large_tablet) {
+				margin-right: spacing.$xs;
+			}
+		}
+
+		&:not(:first-child) {
+			@include responsive.mq($from: large_tablet) {
+				margin-left: spacing.$xl;
+			}
+		}
+	}
+
+	&__button {
+		position: relative;
+		border: none;
+		font-weight: font-weights.$normal;
+		padding: spacing.$xxxs spacing.$xxs;
+
+		&:after {
+			display: none;
+		}
+
+		&:hover,
+		&.active {
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: -(spacing.$xxs);
+				left: spacing.$xxs;
+				right: spacing.$xxs;
+				height: 2px;
+				background: linear-gradient(90deg, #ff7a00 0%, #ff0f00 100%);
+			}
+		}
+
+		&.active {
+			font-weight: font-weights.$semibold;
+		}
+	}
+}

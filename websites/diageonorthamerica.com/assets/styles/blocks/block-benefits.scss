@@ -1,0 +1,50 @@
+@use '../settings/spacing';
+@use '../tools/responsive';
+
+.block-benefits {
+	padding: 64px 0;
+	.container {
+		max-width: 1220px;
+	}
+
+	&__heading {
+		margin-bottom: spacing.$xxl;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+
+		@include responsive.mq($from: mobile_md) {
+			margin: 0 -10px;
+		}
+
+		@include responsive.mq($from: medium_wide) {
+			margin: 0 -20px;
+		}
+	}
+
+	&__list-col {
+		display: flex;
+
+		@include responsive.mq($from: mobile_md) {
+			width: 50%;
+			padding: 0 10px;
+		}
+
+		@include responsive.mq($from: tablet) {
+			width: 33.33%;
+			padding: 0 10px;
+			flex: 1;
+		}
+
+		@include responsive.mq($from: medium_wide) {
+			padding: 0 20px;
+		}
+	}
+
+	.brand-card {
+		max-width: 100%;
+		margin-bottom: spacing.$l;
+	}
+}

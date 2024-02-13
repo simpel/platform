@@ -1,0 +1,17 @@
+@use '../settings/spacing';
+@use '../tools/responsive';
+
+.slider-media {
+	position: relative;
+	padding-top: spacing.$xxxl;
+	overflow: hidden;
+
+	.container {
+		position: relative;
+	}
+
+	&__heading {
+		max-width: 370px;
+		margin-bottom: spacing.$xxl;
+	}
+}

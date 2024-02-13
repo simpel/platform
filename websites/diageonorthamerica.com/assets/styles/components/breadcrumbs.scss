@@ -1,0 +1,43 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../mixins';
+
+.breadcrumbs {
+	&__item {
+		&:not(:last-child) {
+			margin-right: spacing.$xxxs;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: colors.$base_text_color;
+		font-size: font-sizes.$link-size_wide;
+		margin-right: spacing.$xxxs;
+		display: inline-block;
+		//vertical-align: middle;
+		@include mixins.animate(opacity);
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__current {
+		color: colors.$base_text_color;
+		font-size: font-sizes.$link-size_wide;
+		margin: 0;
+		line-height: 1.5;
+		font-weight: normal;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		width: 320px;
+		white-space: nowrap;
+	}
+}

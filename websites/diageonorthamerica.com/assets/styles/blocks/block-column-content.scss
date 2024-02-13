@@ -1,0 +1,24 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights';
+@use '../tools/responsive';
+@use '../tools/etc';
+@use '../mixins';
+
+.block-column-content {
+
+	&__top-margin {
+		margin-top: 60px;
+		@include responsive.mq($from: large_tablet) {
+			margin-top: 120px;
+		}
+	}
+	&__bottom-margin {
+		margin-bottom: 60px;
+		@include responsive.mq($from: large_tablet) {
+			margin-bottom: 120px;
+		}
+	}
+
+}

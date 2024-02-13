@@ -1,0 +1,184 @@
+@use '/assets/styles/tools/responsive';
+
+.large-tab-block {
+	display: flex;
+	width: 100%;
+
+	.main-info {
+		flex: 4;
+		padding-top: 16px;
+		@include responsive.mq($from: tablet) {
+			padding-right: 24px;
+		}
+	}
+	.side-image {
+		flex: 3;
+		height: 0;
+		min-height: calc(100% + 52px);
+		display: flex;
+		max-width: 540px;
+
+		img {
+			max-height: 100%;
+			width: 100%;
+			object-fit: cover;
+			padding-bottom: 32px;
+		}
+	}
+	.small-image {
+		@include responsive.mq($from: tablet) {
+			padding-right: 0;
+		}
+	}
+	.title {
+		font-size: 32px;
+		line-height: 36px;
+		margin-bottom: 8px;
+
+		@include responsive.mq($from: tablet) {
+			font-size: 52px;
+			line-height: 60px;
+		}
+	}
+	.intro {
+		font-size: 18px;
+		line-height: 25px;
+		margin-left: 0;
+		padding-bottom: 48px;
+		@include responsive.mq($from: tablet) {
+			width: 46%;
+			margin-left: auto;
+			padding-bottom: 132px;
+			margin-right: 130px;
+		}
+		.tab-main-link {
+			.link__text {
+				font-size: 22px;
+				line-height: 24px;
+			}
+		}
+	}
+	.mobile-image {
+		padding-bottom: 32px;
+		@include responsive.mq($from: tablet) {
+			padding-bottom: 0;
+		}
+		img {
+			max-width: 100%;
+			@include responsive.mq($from: tablet) {
+				max-width: unset;
+			}
+		}
+	}
+	.main-link {
+		margin-bottom: 48px;
+	}
+	.details {
+		padding-bottom: 48px;
+		img {
+			max-width: 100%;
+			@include responsive.mq($from: tablet) {
+				max-width: unset;
+			}
+		}
+	}
+	.stats {
+		display: flex;
+		margin-bottom: 60px;
+		flex-wrap: wrap;
+
+		.stat {
+			flex: 1;
+			@include responsive.mq($from: tablet) {
+				padding-right: 22px;
+			}
+
+			.large {
+				font-size: 44px;
+				line-height: 48px;
+				font-family: 'URWGeometric';
+				display: flex;
+				align-items: baseline;
+				@include responsive.mq($from: tablet) {
+					font-size: 80px;
+					line-height: 120px;
+				}
+
+				.affix {
+					font-size: 24px;
+					line-height: 48px;
+					font-weight: 600;
+					@include responsive.mq($from: tablet) {
+						font-size: 60px;
+						line-height: 120px;
+					}
+				}
+			}
+			.small {
+				font-family: 'URWGeometric';
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 22px;
+				max-width: 96%;
+				@include responsive.mq($from: tablet) {
+					font-size: 18px;
+					line-height: 25px;
+					max-width: 100%;
+				}
+			}
+		}
+	}
+
+	.links {
+		margin: 0 auto;
+		max-width: 100%;
+
+		@include responsive.mq($from: tablet) {
+			width: 100%;
+			max-width: 80%;
+			margin-left: 0;
+		}
+		.horizontal-splitter {
+			height: 1px;
+			background-color: black;
+		}
+
+		.link-container {
+			display: flex;
+			flex-direction: column;
+			padding: 0 20px;
+			.link__text {
+				&::before {
+					content: none;
+				}
+				&::after {
+					content: none;
+				}
+			}
+		}
+
+		.link {
+			padding: 20px 0;
+			margin: 0;
+		}
+	}
+
+	.row-link {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		@include responsive.mq($until: tablet) {
+			align-items: center;
+			.link__icon {
+				top: 0px;
+			}
+		}
+	}
+}
+
+.with-overflow {
+	margin-bottom: 2rem;
+	@include responsive.mq($from: tablet) {
+		margin-bottom: 5rem;
+	}
+}

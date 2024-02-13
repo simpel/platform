@@ -1,0 +1,21 @@
+{
+	"extends": "tsconfig/react-app.json",
+	"compilerOptions": {
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"allowJs": true,
+		"noEmit": true,
+		"incremental": true,
+		"module": "esnext",
+		"resolveJsonModule": true,
+		"jsx": "preserve"
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx"
+	]
+}

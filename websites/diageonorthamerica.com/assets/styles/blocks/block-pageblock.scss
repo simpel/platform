@@ -1,0 +1,176 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/content-size';
+@use '../tools/responsive';
+@use '../mixins';
+
+//responsive
+@import '~sass-mq';
+
+.pageblock {
+	height: 100%;
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	max-width: calc(content-size.$middle-lg + spacing.$l * 2);
+	//padding: 0 spacing.$l;
+	@include mq($until: large_tablet) {
+		display: block;
+	}
+
+	.img_block_press_release {
+		padding-bottom: 1rem;
+	}
+
+	&--half {
+		max-width: calc(content-size.$middle-lg + spacing.$l * 2);
+		padding: 0 spacing.$l;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		@include mq($until: large_tablet) {
+			display: block;
+		}
+		.pageblock--textarea {
+			max-width: 645px;
+			margin-left: 0;
+			padding-right: 2rem;
+			flex: 1;
+		}
+		.pageblock--aside {
+			flex: 1;
+			max-width: 430px;
+			width: 100%;
+			margin-left: auto;
+			margin-right: 0;
+			margin-top: 0;
+			padding: 1rem;
+			@include mq($until: large_tablet) {
+				margin-left: 0;
+				padding: 1rem 0;
+			}
+		}
+		.pageblock--feature {
+			position: relative;
+			flex: 0 0 100%;
+			padding-top: 5rem;
+			@include mq($until: large_tablet) {
+				padding: 1rem 0 0 0;
+			}
+		}
+	}
+
+	&--wide {
+		max-width: calc(content-size.$middle-lg + spacing.$l * 2);
+		padding: 0 spacing.$l;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		.pageblock--textarea {
+			max-width: 800px;
+			//margin-left: 0;
+			margin: 0 auto;
+			flex: 1;
+		}
+		.pageblock--feature {
+			position: relative;
+			flex: 0 0 100%;
+			padding-top: 5rem;
+			@include mq($until: large_tablet) {
+				padding: 1rem 0 0 0;
+			}
+		}
+	}
+	&--fullbleed {
+		max-width: calc(1330px + spacing.$l * 2);
+		padding: 0 spacing.$l;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		@include mq($until: large_tablet) {
+			padding: 0;
+		}
+		.pageblock--textarea {
+			max-width: 100%;
+			margin-left: 0;
+			flex: 1;
+		}
+	}
+
+	i {
+		font-weight: normal;
+	}
+
+	.strapline-heading {
+		.second-line,
+		.third-line {
+			display: block;
+		}
+		.second-line {
+			margin-left: 80px;
+		}
+		.third-line {
+			margin-left: 100px;
+		}
+	}
+
+	.learn-more-cta {
+		margin-left: 100px;
+		@include mq($until: large_tablet) {
+			margin-left: 0px;
+		}
+	}
+}
+
+.pageblock--textarea {
+	max-width: 650px;
+	width: 100%;
+	margin-right: 0;
+	&-sm {
+		max-width: 550px;
+	}
+}
+
+.pageblock--aside {
+	max-width: 270px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: 0;
+	margin-top: 0;
+	padding: 1rem;
+	@include mq($until: large_tablet) {
+		max-width: 650px;
+		margin-left: 0;
+		padding: 0;
+	}
+
+	.aside-heading {
+		border-top: solid 1px #000;
+		padding-top: 2rem;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		&.relations-list {
+			margin: 1rem 0 1rem 0;
+			li {
+				margin: 0 0 1rem 0;
+			}
+		}
+	}
+}
+
+.page-tags {
+	display: flex;
+	li {
+		border: solid 0.5rem transparent;
+		margin: 0.5rem;
+		background-color: #fff;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+}
+
+.page-press-footer {
+	background: colors.$amber-gradient;
+}

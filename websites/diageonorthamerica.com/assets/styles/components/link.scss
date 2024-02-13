@@ -1,0 +1,205 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-weights';
+@use '../settings/font-sizes';
+@use '../tools/responsive';
+
+.sm-link {
+	margin-top: 10px !important;
+	.link__text {
+		font-size: 16px;
+	}
+	.link:hover .icon,
+	.link:hover .link__icon {
+		margin-left: 0;
+	}
+}
+
+.icon-download {
+	.link:hover .icon,
+	.link:hover .link__icon {
+		margin-left: 0;
+	}
+}
+.anchored-link-list {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 2rem 0;
+	display: flex;
+	flex-wrap: wrap;
+	> li {
+		margin: 0 1.5rem 0.5rem 0;
+		> a {
+			font-weight: 400;
+			font-size: 18px;
+		}
+	}
+}
+.link {
+	position: relative;
+	color: colors.$base_text_color;
+	text-decoration: none;
+	font-weight: font-weights.$semibold;
+	//transition: all 0.2s ease-in-out;
+
+	.icon {
+		transition: all 0.2s ease-in-out;
+	}
+
+	cursor: pointer;
+	span {
+		font-weight: font-weights.$semibold;
+	}
+
+	.link__text {
+		&:after {
+			transition: all 0.2s ease-in-out;
+		}
+	}
+
+	&--medium {
+		.link__text {
+			@include responsive.mq($from: large_tablet) {
+				font-size: font-sizes.$size-m;
+			}
+		}
+	}
+
+	&--large {
+		.link__text {
+			@include responsive.mq($from: large_tablet) {
+				font-size: calc(font-sizes.$size-l + 2px);
+			}
+		}
+	}
+
+	&__inner {
+		position: relative;
+	}
+
+	&__text {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: calc(font-sizes.$size-xs + 1px);
+		font-weight: font-weights.$semibold;
+		padding-bottom: 8px;
+
+		@include responsive.mq($from: large_tablet) {
+			font-size: font-sizes.$size-m;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			transition: background-color 500ms linear;
+			background: colors.$link-gradient;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background: colors.$link-gradient;
+			transform: scaleX(0);
+			transform-origin: top left;
+			transition: transform 0.5s ease;
+		}
+	}
+
+	&__text-naked {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: calc(font-sizes.$size-xs + 1px);
+		font-weight: font-weights.$semibold;
+		padding-bottom: 8px;
+
+		@include responsive.mq($from: large_tablet) {
+			font-size: font-sizes.$size-m;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			transition: background-color 500ms linear;
+			background: colors.$link-gradient;
+			width: 0;
+			transition: all 0.2s ease-in-out;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background: colors.$link-gradient;
+			transform: scaleX(0);
+			transform-origin: top left;
+			transition: all 0.2s ease-in-out;
+		}
+
+		&:hover {
+			&::after,
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+
+	&__icon {
+		position: relative;
+		top: 1px;
+		display: inline-block !important;
+		vertical-align: middle !important;
+		margin-left: spacing.$xxs;
+		transition: all 0.2s ease-in-out;
+
+		&--left {
+			margin-left: 0;
+			margin-right: spacing.$xxs;
+		}
+	}
+
+	&:hover {
+		.link__text {
+			&:after {
+				display: none;
+			}
+
+			&::before {
+				transform: scaleX(1);
+			}
+		}
+
+		.icon,
+		.link__icon {
+			transition: all 0.2s ease-in-out;
+			margin-left: 12px;
+		}
+	}
+}
+
+// diageo footer override - includes font
+a.link {
+	[class^='icon-'],
+	[class*=' icon-'] {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

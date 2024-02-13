@@ -1,0 +1,59 @@
+/**
+ * Overriding Horizon Gold footer styling.
+ * It has some ugly styling by default which can't be disabled.
+ * With the following CSS classes, this styling can be overriden.
+ */
+#footer #dg_footer_wrapper_inner,
+#footer #dg_footer_wrapper_inner ul li,
+#footer #dg_footer_wrapper_inner ul li a,
+#footer #dg_footer_wrapper_inner ul li span {
+  float: none !important;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 14px;
+  line-height: 2;
+
+  letter-spacing: 0.25px;
+
+  color: white !important;
+}
+
+#footer #dg_footer_wrapper {
+  background: none;
+}
+
+#footer #dg_footer_wrapper_inner ul li:after {
+  content: none;
+}
+
+#footer #dg_footer_wrapper_inner ul li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/**
+ * Agegate fix
+ * Tailwind has a reset for input and select elements which breaks agegate
+ */
+#age_content #age_age_select_group select {
+  display: inline-block;
+}
+
+#age_content input {
+  width: auto;
+  display: inline-block;
+}
+
+#footer #dg_footer_wrapper #dg_SITE_MAP,
+#footer #dg_footer_wrapper #dg_SITE_NOTICE {
+  font-size: 10px;
+}
+
+#footer #dg_footer_wrapper .dg_footer_main ul li:nth-last-child(2) {
+  display: block;
+}

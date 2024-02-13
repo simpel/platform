@@ -1,0 +1,93 @@
+@use 'sass:math';
+@use '../settings/font-sizes' as font;
+@use '../settings/font-face';
+@use '../settings/colors';
+@use 'responsive';
+
+@use '../settings/font-weights' as fw;
+
+@mixin headingSize($font-size, $spacing: 0) {
+	color: var(--primary-color-text);
+	font-size: math.round($font-size);
+	font-family: font-face.$heading-head;
+	line-height: 1;
+	letter-spacing: $spacing;
+	margin: 0 0 math.round($font-size * 0.5714);
+}
+
+@mixin heading($font-size, $spacing: 0) {
+	&:last-child {
+		margin-bottom: 0
+	}
+	@include headingSize($font-size, $spacing);
+}
+
+@mixin h1-xxl {
+	@include heading(font.$h1-xl-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h1-xxl-medium_wide, 0);
+	}
+}
+
+@mixin h1-xl {
+	@include heading(font.$h1-xl-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h1-xl-medium_wide, 0);
+	}
+}
+
+@mixin h1 {
+	@include heading(font.$h1-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h1-medium_wide, 0);
+	}
+}
+
+@mixin h2 {
+	@include heading(font.$h2-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h2-medium_wide, 0);
+	}
+}
+
+@mixin h2-small {
+	@include heading(calc(font.$h2-mobile - 7px), 0);
+	@include responsive.mq($from: wide) {
+		@include heading(calc(font.$h2-medium_wide - 7px), 0);
+	}
+}
+
+@mixin h3 {
+	@include heading(calc(font.$h3-mobile + 7px), 0);
+	@include responsive.mq($from: wide) {
+		@include heading(calc(font.$h3-medium_wide + 7px), 0);
+	}
+}
+
+@mixin h4 {
+	@include heading(font.$h4-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h4-medium_wide, 0);
+	}
+}
+
+@mixin h5 {
+	@include heading(calc(font.$h5-mobile - 2px), 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(calc(font.$h5-medium_wide - 2px), 0);
+	}
+}
+
+@mixin h6 {
+	@include heading(font.$h6-mobile, 0);
+
+	@include responsive.mq($from: wide) {
+		@include heading(font.$h6-medium_wide, 0);
+	}
+}

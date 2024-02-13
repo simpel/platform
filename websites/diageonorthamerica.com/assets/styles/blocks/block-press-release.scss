@@ -1,0 +1,57 @@
+@use '../settings/spacing';
+@use '../settings/colors';
+@use '../settings/font-sizes';
+@use '../settings/font-weights';
+@use '../tools/responsive';
+@use '../tools/etc';
+@use '../mixins';
+
+.block-press-release {
+	// padding-top: 60px;
+	// padding-bottom: 70px;
+	//overflow: hidden;
+
+	&__desktop {
+		@include responsive.mq($until: large_tablet) {
+			display: none;
+		}
+	}
+
+	&__mobile {
+		@include responsive.mq($from: large_tablet) {
+			display: none;
+		}
+	}
+}
+
+.press-release {
+	// @include responsive.mq($from: large_tablet) {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -(spacing.$xxs);
+	margin-right: -(spacing.$xxs);
+	// }
+
+	@include responsive.mq($from: wide) {
+		margin-left: -(spacing.$l);
+		margin-right: -(spacing.$l);
+	}
+
+	&__col {
+		margin: 0 0 1rem 0;
+		@include responsive.mq($from: tablet) {
+			width: 33.33%;
+			padding: 0 spacing.$xxs;
+		}
+
+		@include responsive.mq($from: wide) {
+			padding: 0 spacing.$xxs;
+		}
+
+		.card__heading {
+			min-height: 90px;
+			max-height: 103px;
+			overflow: hidden;
+		}
+	}
+}

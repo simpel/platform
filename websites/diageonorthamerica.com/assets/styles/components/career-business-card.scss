@@ -1,0 +1,143 @@
+@use '../settings/colors';
+@use '../settings/spacing.scss';
+@use '../settings/font-sizes.scss';
+@use '../settings/font-weights';
+@use '../mixins';
+@use '../tools/responsive.scss';
+@import '~sass-mq';
+
+$device-md: 1024px;
+
+.career-business-cards {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 24px;
+
+	.business-card {
+		flex: 1 1 calc(25% - 24px);
+		width: 100%;
+		min-width: 200px;
+		max-width: 25%;
+
+		@include responsive.mq($until: tablet) {
+			max-width: 100%;
+		}
+
+		@supports (aspect-ratio: 544 / 752) {
+			.business-card-image {
+				aspect-ratio: 544 / 752;
+			}
+		}
+
+		@supports not (aspect-ratio: 544 / 752) {
+			.image-link {
+				position: relative;
+				width: 100%;
+
+				&:before {
+					display: block;
+					content: '';
+					width: 100%;
+					padding-top: calc(752 / 544) * 100%;
+				}
+			}
+
+			.business-card-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.business-card-image {
+			width: 100%;
+			margin-bottom: 0;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		.card-content {
+			position: relative;
+
+			width: 100%;
+			margin-top: -40px;
+			padding: 20px;
+			transform: translateX(20px);
+
+			background-color: white;
+
+			a {
+				text-decoration: none;
+			}
+
+			h3 {
+				font-size: 13px;
+				line-height: 18px;
+				text-transform: uppercase;
+				font-weight: 700;
+				margin: 0 0 8px;
+			}
+
+			.link-label {
+				font-size: 20px;
+				line-height: 25px;
+				font-weight: 300;
+			}
+		}
+	}
+
+	//.flex-col-md-3:hover{
+	//img{
+	//    transform: scale(1.1);
+	//    }
+	//}
+	//
+	//
+	//.image__wrapper.xs_image{
+	//  z-index: -1;
+	//  overflow: hidden;
+	//  .fit-to-object{
+	//    position: absolute;
+	//    transition: 0.35s ease-in-out;
+	//  }
+	//}
+	//
+	//
+	//
+	//.description__text{
+	//    background: #fff;
+	//    padding: 1rem 0 1rem 1rem;
+	//    margin-top: -3rem;
+	//    z-index: 3;
+	//    width: 95%;
+	//    margin-left: auto;
+	//}
+	//.description__text h3{
+	//    font-size: 20px;
+	//    line-height: 25px;
+	//    margin-bottom: .5rem;
+	//    margin-top: 0;
+	//    text-transform: uppercase;
+	//}
+	//.description__text p{
+	//    font-size: 18px;
+	//    line-height: 22px;
+	//    font-weight: font-weights.$light;
+	//    @include mq($until: large_tablet) {
+	//      font-size: 24px;
+	//      line-height: 29px;
+	//    }
+	//}
+	//
+	//
+	//.description__text a.full__link::before{
+	//    width: calc(100% - 16%);
+	//    left: 8%;
+	//    @media (max-width: $device-md) {
+	//      width:100%;
+	//      left: 0;
+	//    }
+	//  }
+}

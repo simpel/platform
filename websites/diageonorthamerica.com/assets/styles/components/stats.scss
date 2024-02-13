@@ -1,0 +1,148 @@
+@use '../settings/font-weights';
+@use '../settings/font-sizes';
+@use '../settings/spacing';
+@import '~sass-mq';
+
+.stats-block {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1.5rem auto 0;
+	padding: 0;
+	width: 100%;
+	.stats-item {
+		&.double {
+			width: 50%;
+		}
+		&.triple {
+			width: 33.333%;
+			@include mq($until: mobile_md) {
+				width: 50%;
+			}
+		}
+		&.quadruple {
+			width: 25%;
+			.stat-figure {
+				font-size: font-sizes.$h1-xl-medium_wide;
+				@include mq($until: large_tablet) {
+					font-size: font-sizes.$h1-mobile;
+				}
+			}
+			@include mq($until: large_tablet) {
+				width: 50%;
+			}
+		}
+
+		@include mq($until: mobile_md) {
+			width: 50%;
+		}
+
+		.stat-figure {
+			font-size: 60px;
+			font-weight: font-weights.$semibold;
+			margin: 0;
+			@include mq($until: large_tablet) {
+				font-size: font-sizes.$h1-mobile;
+			}
+
+			.currency_symbol {
+				font-size: 40px;
+				display: inline-block;
+
+				@include mq($until: large_tablet) {
+					font-size: 25px;
+				}
+			}
+
+			.stat-figure-small {
+				font-size: calc(font-sizes.$h1-mobile - 10px);
+			}
+
+			&.stat-figure-s {
+				font-size: font-sizes.$h2-medium_wide !important;
+			}
+
+			&.stat-figure-m {
+				font-size: font-sizes.$h1-xl-medium_wide !important;
+			}
+
+			&.stat-figure-l {
+				font-size: font-sizes.$h1-xxl-medium_wide !important;
+				font-weight: font-weights.$semibold;
+				z-index: 4;
+				position: relative;
+			}
+
+			&.stat-figure-xl {
+				font-size: font-sizes.$h1-xxxl-medium_wide !important;
+				font-weight: font-weights.$semibold;
+				z-index: 4;
+				position: relative;
+			}
+
+			&.stat-figure-s,
+			&.stat-figure-m,
+			&.stat-figure-l,
+			&.stat-figure-xl {
+				@include mq($until: wide) {
+					font-size: font-sizes.$h1-mobile !important;
+				}
+
+				@include mq($until: large_tablet) {
+					font-size: font-sizes.$h1-mobile !important;
+				}
+
+				@include mq($until: tablet) {
+					font-size: font-sizes.$h2-mobile !important;
+				}
+
+				@include mq($from: mobile, $until: mobile_md) {
+					font-size: font-sizes.$h4-mobile !important;
+				}
+
+				@include mq($until: mobile) {
+					font-size: font-sizes.$h4-mobile !important;
+				}
+			}
+		}
+
+		.title-title {
+			font-size: font-sizes.$size-m;
+		}
+	}
+
+	.stat-title {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 25px;
+		max-width: 330px;
+		padding-right: 2rem;
+		@include mq($until: large_tablet) {
+			font-size: 18px;
+			line-height: 26px;
+			margin-right: 2rem;
+		}
+	}
+
+	&.small {
+		.stats-item {
+			.stat-figure {
+				font-size: font-sizes.$h1-medium_wide;
+				font-weight: font-weights.$semibold;
+				margin: 0;
+				@include mq($until: large_tablet) {
+					font-size: font-sizes.$h1-mobile;
+				}
+			}
+		}
+	}
+
+	.small-text {
+		margin-top: 2rem;
+	}
+}
+
+.stats-right-column-wrapper {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+}
