@@ -1,8 +1,8 @@
 {
-	"name": "@diageo/utils",
+	"name": "@platform/utils",
 	"version": "5.0.0",
 	"private": false,
-	"author": "Comprend AB",
+	"author": "Joel Sandén",
 	"sideEffects": false,
 	"type": "module",
 	"main": "dist/index.js",
@@ -15,43 +15,21 @@
 		"barrels:generate": "ctix build",
 		"build": "rimraf dist && vite build",
 		"ci:lint": "pnpm lint",
-		"ci:lint:styles": "pnpm lint:styles",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
 		"dev": "vite build -w",
 		"lint": "xo --cwd=../.. $(pwd) --fix",
-		"lint:styles": "stylelint \"**/*.{css,scss}\" --fix",
 		"sort": "npx sort-package-json"
 	},
-	"stylelint": {
-		"extends": "stylelint-config-diageo"
-	},
-	"dependencies": {
-		"@apollo/client": "^3.8.6",
-		"graphql": "^15.5.1",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"sass": "^1.69.5"
-	},
 	"devDependencies": {
-		"@diageo/buildsystem": "workspace:*",
-		"@types/node": "^20.8.9",
-		"@types/react": "^18.2.32",
-		"@types/react-dom": "^18.2.14",
-		"@vitejs/plugin-react": "^4.2.1",
+		"@platform/buildsystem": "workspace:*",
 		"ctix": "^2.3.0",
-		"glob": "^10.3.10",
 		"rimraf": "^5.0.5",
-		"stylelint-config-diageo": "workspace:*",
 		"tsconfig": "workspace:*",
 		"typescript": "^5.2.2",
-		"vite": "^5.0.8",
-		"vite-plugin-dts": "^3.7.0",
-		"vite-plugin-lib-inject-css": "^1.3.0"
+		"vite": "^5.0.8"
 	},
 	"peerDependencies": {
-		"ctix": "^2.3.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"ctix": "^2.3.0"
 	},
 	"publishConfig": {
 		"registry": "https://pkgs.dev.azure.com/comprend/bfc3e538-4051-41cb-b42f-d2a0c4694dcd/_packaging/Diageo/npm/registry"

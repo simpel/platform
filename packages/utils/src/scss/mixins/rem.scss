@@ -1,3 +1,0 @@
-@function rem($pxValue) {
-	@return #{strip-unit($pxValue) / strip-unit($font-size-base)}rem;
-}

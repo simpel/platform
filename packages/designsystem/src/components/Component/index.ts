@@ -1,4 +1,4 @@
 // created from ctix
 
-export { default as Badge } from'./Component';
-export { type TBadgeCSSVars, type TBadge } from'./TComponent';
+export { default as Component } from'./Component';
+export { type TComponent } from'./TComponent';

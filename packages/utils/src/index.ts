@@ -1,6 +1,3 @@
 // created from ctix
 
-export * from './utils/convertTextFormat';
-export * from './utils/getClassName';
-export * from './utils/getEmbedVideo';
-export * from './utils/rem';
+export * from './utils/exampleUtilityFunction';

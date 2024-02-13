@@ -12,7 +12,7 @@
 				"storybook-static/**"
 			],
 			"dependsOn": [
-				"@diageo/buildsystem#build",
+				"@platform/buildsystem#build",
 				"^build",
 				"^barrels:generate"
 			],
@@ -20,20 +20,20 @@
 				".env"
 			]
 		},
-		"@diageo/designsystem#build": {
+		"@platform/designsystem#build": {
 			"cache": false,
 			"dependsOn": [
-				"@diageo/designsystem#barrels:generate",
-				"@diageo/utils#build"
+				"@platform/designsystem#barrels:generate",
+				"@platform/utils#build"
 			]
 		},
-		"@diageo/utils#build": {
+		"@platform/utils#build": {
 			"cache": false,
 			"dependsOn": [
-				"@diageo/utils#barrels:generate"
+				"@platform/utils#barrels:generate"
 			]
 		},
-		"@diageo/buildsystem#build": {
+		"@platform/buildsystem#build": {
 			"cache": true
 		},
 		"clean": {
@@ -42,22 +42,20 @@
 		"dev": {
 			"dependsOn": [
 				"^barrels:generate",
-				"^@diageo/buildsystem#build"
+				"^@platform/buildsystem#build"
 			],
 			"cache": false,
 			"persistent": true
 		},
 		"lint": {},
-		"lint:styles": {},
 		"ci:lint": {},
-		"ci:lint:styles": {},
 		"sort": {
 			"cache": true
 		},
 		"barrels:delete": {},
 		"barrels:generate": {
 			"dependsOn": [
-				"@diageo/buildsystem#build",
+				"@platform/buildsystem#build",
 				"^barrels:generate"
 			],
 			"cache": false

@@ -1,11 +1,8 @@
 {
-	"name": "@diageo/designsystem",
+	"name": "@platform/designsystem",
 	"version": "5.0.0",
 	"private": false,
-	"author": "Comprend AB",
-	"sideEffects": [
-		"**/*.css"
-	],
+	"author": "Joel Sandén",
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -17,22 +14,16 @@
 		"barrels:generate": "ctix build",
 		"build": "rimraf dist && vite build",
 		"ci:lint": "pnpm lint",
-		"ci:lint:styles": "pnpm lint:styles",
 		"clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
 		"dev": "concurrently \"vite build --watch\" \"storybook dev -p 6006\"",
 		"lint": "xo --cwd=../.. $(pwd) --fix",
-		"lint:styles": "stylelint \"**/*.{css,scss}\" --fix",
 		"prepare": "install-peers || exit 0",
 		"sort": "npx sort-package-json"
 	},
-	"stylelint": {
-		"extends": "stylelint-config-diageo"
-	},
 	"dependencies": {
-		"@diageo/utils": "workspace:*",
+		"@platform/utils": "workspace:*",
 		"glob": "^10.3.10",
 		"lodash.merge": "^4.6.2",
-		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-svg": "^16.1.29",
@@ -40,14 +31,13 @@
 	},
 	"devDependencies": {
 		"concurrently": "8.2.2",
-		"@diageo/buildsystem": "workspace:*",
+		"@platform/buildsystem": "workspace:*",
 		"@storybook/addon-a11y": "^7.6.7",
 		"@storybook/addon-actions": "^7.6.7",
 		"@storybook/addon-console": "^2.0.0",
 		"@storybook/addon-docs": "^7.6.7",
 		"@storybook/addon-essentials": "^7.6.7",
 		"@storybook/addon-links": "^7.6.7",
-		"@storybook/preset-scss": "^1.0.3",
 		"@storybook/preview-api": "^7.6.7",
 		"@storybook/react": "^7.6.7",
 		"@storybook/react-vite": "^7.6.7",
@@ -59,8 +49,6 @@
 		"rimraf": "^5.0.5",
 		"storybook": "^7.6.7",
 		"storybook-addon-pseudo-states": "^2.1.2",
-		"stylelint": "^15.11.0",
-		"stylelint-config-diageo": "workspace:*",
 		"tsconfig": "workspace:*",
 		"typescript": "^5.2.2",
 		"vite": "^5.0.8"
@@ -68,7 +56,6 @@
 	"peerDependencies": {
 		"ctix": "^2.3.0",
 		"lodash.merge": "^4.6.2",
-		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

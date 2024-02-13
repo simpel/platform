@@ -12,4 +12,4 @@ This starter pack contains everything you need to develop a state of the art web
 - Testing with Cypress
 - Azure DevOps Pipelines for publishing to NPM
 - Azure DevOps Pipelines for verifying Pull Requests
-- iGraohQL service
+- iGraphQL service

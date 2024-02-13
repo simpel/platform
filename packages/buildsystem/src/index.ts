@@ -3,12 +3,10 @@ import {glob} from "glob"
 import { extname, relative } from 'path'
 import { InputOption } from "rollup"
 import gradient from 'gradient-string'
-import { BuildOptions, CSSOptions, PluginOption } from "vite"
+import { BuildOptions, PluginOption } from "vite"
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
-import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import postcssNested from 'postcss-nested'
 
 
 /**
@@ -52,20 +50,10 @@ export const getBuildOptions = (absolutePath: string, sourceFolder: string = "sr
 	}
 };
 	
-export const getCssOptions = (): CSSOptions => { 
-	return {
-		postcss: {
-			plugins: [postcssNested()],
-		},
-	}
-
-}
-
 export const getPluginOptions = ():PluginOption[] => { 
 	return [
 		react(),
 		dts({ include: ['src'] }),
-		libInjectCss(),
 		viteStaticCopy({
 			targets: [
 				{
